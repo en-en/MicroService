@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace Server1
 {
@@ -36,7 +37,7 @@ namespace Server1
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,IApplicationLifetime lifetime)
         {
             if (env.IsDevelopment())
             {
@@ -59,6 +60,19 @@ namespace Server1
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            ServiceEntity serviceEntity=new ServiceEntity
+            {
+                IP = "localhost",
+                Port = Convert.ToInt32(Configuration["Service:Port"]),
+                ServiceName = Configuration["Service:Name"],
+                ConsulIP = Configuration["Consul:IP"],
+                ConsulPort = Convert.ToInt32(Configuration["Consul:Port"])
+
+            };
+            Console.WriteLine($"consul开始注册{JsonConvert.SerializeObject(serviceEntity)}");
+            app.RegisterConsul(lifetime, serviceEntity);
+
         }
+     
     }
 }

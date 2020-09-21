@@ -7,12 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 using Server1.Models;
 
 namespace Server1.Controllers
-{
+{ 
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
             return View();
+        }
+
+        //[Route("/health")]
+        public IActionResult Health()
+        {
+            return Json(true);
+        }
+
+        public IActionResult Hello()
+        {
+            return Json("我是server1");
         }
 
         public IActionResult Privacy()
