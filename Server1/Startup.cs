@@ -62,7 +62,7 @@ namespace Server1
             });
             ServiceEntity serviceEntity=new ServiceEntity
             {
-                IP = "localhost",
+                IP = Configuration["Service:IP"],
                 Port = Convert.ToInt32(Configuration["Service:Port"]),
                 ServiceName = Configuration["Service:Name"],
                 ConsulIP = Configuration["Consul:IP"],
