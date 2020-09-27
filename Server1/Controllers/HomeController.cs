@@ -31,6 +31,12 @@ namespace Server1.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult GetCurHostIp()
+        {
+           return Json(HttpContext.Connection.LocalIpAddress.MapToIPv4()?.ToString());
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
