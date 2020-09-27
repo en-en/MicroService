@@ -37,6 +37,11 @@ namespace Server1.Controllers
            return Json(HttpContext.Connection.LocalIpAddress.MapToIPv4()?.ToString());
         }
 
+        public IActionResult Test()
+        {
+            return Json(HttpContext.Connection.LocalIpAddress.MapToIPv4()?.ToString());
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
