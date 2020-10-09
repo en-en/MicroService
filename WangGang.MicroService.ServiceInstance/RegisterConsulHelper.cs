@@ -21,7 +21,7 @@ namespace Server1
             {
                 DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5),
                 Interval = TimeSpan.FromSeconds(10),
-                HTTP = $"Http://{entity.IP}:{entity.Port}/health/index",
+                HTTP = $"Http://{entity.IP}:{entity.Port}/api/health/index",
                 Timeout = TimeSpan.FromSeconds(5)
 
             };
