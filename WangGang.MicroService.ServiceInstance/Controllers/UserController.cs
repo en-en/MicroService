@@ -38,7 +38,7 @@ namespace WangGang.MicroService.ServiceInstance.Controllers
                 Id = u.Id,
                 Account = u.Account,
                 Name = u.Name,
-                Role = $"{ this._configuration["Service:IP"]}{ this._configuration["Service:Port"]}",//多返回个信息
+                Role = $"{ this._configuration["Service:IP"]}:{ this._configuration["Service:Port"]}",//多返回个信息
                 Email = u.Email,
                 LoginTime = u.LoginTime,
                 Password = u.Password
