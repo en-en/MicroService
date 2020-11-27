@@ -81,7 +81,7 @@ namespace WangGang.MicroService.ServiceInstance
                 //拼接生成的XML文件路径
                 var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
                 //HomeController为当前程序集下的一个类（可自定义一个当前应用程序集下的一个类）[用于获取程序集名称]
-                var commentsFileName = typeof(HealthController).Assembly.GetName().Name + ".XML";
+                var commentsFileName = typeof(HealthController).Assembly.GetName().Name + ".xml";
                 var xmlPath = Path.Combine(basePath, commentsFileName);
                 s.IncludeXmlComments(xmlPath);
                 s.DocInclusionPredicate((docName, description) => true);
